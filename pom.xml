@@ -204,7 +204,7 @@
                             <autoVersionSubmodules>true</autoVersionSubmodules>
                             <allowSnapshots>true</allowSnapshots>
                             <enableSshAgent>true</enableSshAgent>
-                            <noDeploy>true</noDeploy>
+                            <noDeploy>false</noDeploy>
                             <useReleaseProfile>true</useReleaseProfile>
                             <pushReleases>true</pushReleases>
                         </configuration>
