@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.bpic.aws</groupId>
         <artifactId>aws-sqs-ra</artifactId>
-        <version>1.0.4-SNAPSHOT</version>
+        <version>1.0.5-SNAPSHOT</version>
     </parent>
 
     <artifactId>aws-sqs-jca-api</artifactId>
