@@ -7,6 +7,32 @@
     <version>1.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <name>aws-sqs-ra</name>
+    <description>Amazon SQS JMS Resource Adapter</description>
+    <url>https://github.com/bpicio/aws-sqs-ra</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Bruno Palermo</name>
+            <email>bruno@bpic.io</email>
+            <organization>BP Internet e Consultoria</organization>
+            <organizationUrl>https://bpic.io</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/bpicio/aws-sqs-ra.git</connection>
+        <developerConnection>scm:git:ssh://github.com:bpicio/aws-sqs-ra.git</developerConnection>
+        <url>http://github.com/bpicio/aws-sqs-ra/tree/master</url>
+    </scm>
+
     <modules>
         <module>aws-sqs-rar</module>
         <module>aws-sqs-jca-api</module>
