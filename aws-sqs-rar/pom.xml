@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.bpic.aws</groupId>
+        <artifactId>aws-sqs-ra</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <packaging>rar</packaging>
+
+    <artifactId>aws-sqs-rar</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.bpic.jakartaee.ra</groupId>
+            <artifactId>aws-sqs-jca-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.ironjacamar</groupId>
+            <artifactId>ironjacamar-spec-api</artifactId>
+            <version>${version.ironjacamar}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-rar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+<!--                            <Dependencies>javax.resource.api, javax.jms.api, javax.validation.api, org.jboss.logging, org.hibernate.validator</Dependencies>-->
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.jboss.ironjacamar</groupId>-->
+<!--                <artifactId>ironjacamar-validator-maven</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>validate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash; output directory&ndash;&gt;-->
+<!--                    <outputDir>.</outputDir>-->
+
+<!--                    &lt;!&ndash; rar filename &ndash;&gt;-->
+<!--                    <rarFile>${project.build.directory}/${project.artifactId}.rar</rarFile>-->
+
+<!--                    &lt;!&ndash;  optional classpath-->
+<!--                    <classpath>-->
+<!--                      <param>classpath1</param>-->
+<!--                      <param>classpath2</param>-->
+<!--                    </classpath>-->
+<!--                    &ndash;&gt;-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+</project>
