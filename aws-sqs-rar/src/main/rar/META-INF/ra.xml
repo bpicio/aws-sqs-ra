@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connector xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/connector_1_7.xsd"
+           version="1.7">
+    <module-name>aws-sqs-rar</module-name>
+    <description>JCA resource adapter to use AWS SQS's JMS interface</description>
+    <display-name>Amazon SQS JMS Resource Adapter</display-name>
+    <vendor-name>BP Internet</vendor-name>
+    <eis-type>JMS 1.1</eis-type>
+    <resourceadapter-version>1.0.0</resourceadapter-version>
+    <license>
+        <license-required>false</license-required>
+    </license>
+    <resourceadapter>
+        <resourceadapter-class>io.bpic.aws.sqs.ra.inbound.SQSJMSResourceAdapter</resourceadapter-class>
+        <inbound-resourceadapter>
+            <messageadapter>
+                <messagelistener>
+                    <messagelistener-type>javax.jms.MessageListener</messagelistener-type>
+                    <activationspec>
+                        <activationspec-class>io.bpic.aws.sqs.ra.inbound.SQSJMSActivationSpec</activationspec-class>
+                        <required-config-property>
+                            <config-property-name>destination</config-property-name>
+                        </required-config-property>
+                        <config-property>
+                            <description>AWS Access Key. If not set, defers to com.amazonaws.auth.DefaultAWSCredentialsProviderChain</description>
+                            <config-property-name>awsAccessKeyId</config-property-name>
+                            <config-property-type>java.lang.String</config-property-type>
+                            <config-property-ignore>false</config-property-ignore>
+                            <config-property-supports-dynamic-updates>false</config-property-supports-dynamic-updates>
+                            <config-property-confidential>false</config-property-confidential>
+                        </config-property>
+                        <config-property>
+                            <description>AWS Secret Key. If not set, defers to com.amazonaws.auth.DefaultAWSCredentialsProviderChain</description>
+                            <config-property-name>awsSecretKey</config-property-name>
+                            <config-property-type>java.lang.String</config-property-type>
+                            <config-property-ignore>false</config-property-ignore>
+                            <config-property-supports-dynamic-updates>false</config-property-supports-dynamic-updates>
+                            <config-property-confidential>false</config-property-confidential>
+                        </config-property>
+                        <config-property>
+                            <description>Region of the SQS queue. If not set, defers to com.amazonaws.regions.DefaultAwsRegionProviderChain</description>
+                            <config-property-name>region</config-property-name>
+                            <config-property-type>java.lang.String</config-property-type>
+                            <config-property-ignore>false</config-property-ignore>
+                            <config-property-supports-dynamic-updates>false</config-property-supports-dynamic-updates>
+                            <config-property-confidential>false</config-property-confidential>
+                        </config-property>
+                        <config-property>
+                            <description>Destination type. Must be 'javax.jms.Queue'.</description>
+                            <config-property-name>destinationType</config-property-name>
+                            <config-property-type>java.lang.String</config-property-type>
+                            <config-property-value>javax.jms.Queue</config-property-value>
+                            <config-property-ignore>false</config-property-ignore>
+                            <config-property-supports-dynamic-updates>false</config-property-supports-dynamic-updates>
+                            <config-property-confidential>false</config-property-confidential>
+                        </config-property>
+                        <config-property>
+                            <description>Destination (queue) from which messages are consumed.</description>
+                            <config-property-name>destination</config-property-name>
+                            <config-property-type>java.lang.String</config-property-type>
+                            <config-property-ignore>false</config-property-ignore>
+                            <config-property-supports-dynamic-updates>false</config-property-supports-dynamic-updates>
+                            <config-property-confidential>false</config-property-confidential>
+                        </config-property>
+                        <config-property>
+                            <description>Values are Auto-acknowledge, Dups-ok-acknowledge, and Client-acknowledge</description>
+                            <config-property-name>acknowledgeMode</config-property-name>
+                            <config-property-type>java.lang.String</config-property-type>
+                            <config-property-value>auto-acknowledge</config-property-value>
+                            <config-property-ignore>false</config-property-ignore>
+                            <config-property-supports-dynamic-updates>false</config-property-supports-dynamic-updates>
+                            <config-property-confidential>false</config-property-confidential>
+                        </config-property>
+                    </activationspec>
+                </messagelistener>
+            </messageadapter>
+        </inbound-resourceadapter>
+        <adminobject>
+            <adminobject-interface>javax.jms.Queue</adminobject-interface>
+            <adminobject-class>io.bpic.aws.sqs.ra.SQSJMSQueue</adminobject-class>
+            <config-property>
+                <config-property-name>queueName</config-property-name>
+                <config-property-type>java.lang.String</config-property-type>
+            </config-property>
+        </adminobject>
+    </resourceadapter>
+</connector>
