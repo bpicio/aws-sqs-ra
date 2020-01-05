@@ -88,4 +88,4 @@ public class ReceiveSQSMDB implements MessageListener {
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU AGPLv3 License - see the [LICENSE.md](LICENSE.md) file for details
